@@ -12,14 +12,17 @@ public class ARLyricPlay : MonoBehaviour
     ARRaycastManager m_RaycastManager;
     AudioSource m_AudioSource;
 
-
     public GameObject[] m_plcaeObjects;
     public AudioClip[] m_AudioClips;
 
+    Pose hitPose;
+
     int clickCount;
+    bool m_isStart;
 
     public void Start()
     {
+        m_isStart = false;
         clickCount = 0;
 
         m_SessionOrigin = GetComponent<ARSessionOrigin>();
@@ -30,6 +33,20 @@ public class ARLyricPlay : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (m_isStart && !m_AudioSource.isPlaying)
+        {
+            if (spawnObject)
+                Destroy(spawnObject);
+
+            spawnObject = Instantiate(m_plcaeObjects[(clickCount) % m_plcaeObjects.Length], hitPose.position, hitPose.rotation);
+
+            m_AudioSource.loop = false;
+            m_AudioSource.clip = m_AudioClips[(clickCount) % m_AudioClips.Length];
+            m_AudioSource.Play();
+
+            clickCount++;
+        }
+        
         PlaceObjectByTouch();
     }
 
@@ -39,30 +56,15 @@ public class ARLyricPlay : MonoBehaviour
         
         if (Input.touchCount > 0)
         {
+            m_isStart = true;
+
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
             if (m_RaycastManager.Raycast(touch.position, hits, TrackableType.Planes))
             {
-                Pose hitPose = hits[0].pose;
-                
-                if (spawnObject)
-                {
-                    Destroy(spawnObject);
-                }
+                hitPose = hits[0].pose;
 
-                spawnObject = Instantiate(m_plcaeObjects[(clickCount) % m_plcaeObjects.Length], hitPose.position, hitPose.rotation);
-                spawnObject.transform.position = hitPose.position;
+                spawnObject.transform.position = hitPose.position + new Vector3(0.0f, 0.0f, 5.0f);
                 spawnObject.transform.rotation = hitPose.rotation;
-
-                if (m_AudioSource.isPlaying)
-                {
-                    m_AudioSource.Stop();
-                }
-
-                m_AudioSource.loop = true;
-                m_AudioSource.clip = m_AudioClips[(clickCount) % m_AudioClips.Length];
-                m_AudioSource.Play();
-
-                clickCount++;
             }
         }
     }

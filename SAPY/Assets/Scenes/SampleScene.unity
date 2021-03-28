@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 525238119}
   - component: {fileID: 525238118}
   - component: {fileID: 525238120}
+  - component: {fileID: 525238121}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -258,7 +259,7 @@ MonoBehaviour:
   m_SessionOrigin: {fileID: 525238114}
   m_plcaeObjects:
   - {fileID: 919132149155446097, guid: badeec96c4b2da349bc62ed1dd52f4db, type: 3}
-  - {fileID: 919132149155446097, guid: 5d29275ffe857e44f850c2f9940e6496, type: 3}
+  - {fileID: 2049819448458196098, guid: ff1f461c5552d0d4abbdd439ad366527, type: 3}
   m_AudioClips:
   - {fileID: 8300000, guid: 6016f427f233537459bc913ab3ac6d39, type: 3}
   - {fileID: 8300000, guid: 49fa9d8e09ae02e4ebf10126989be7d6, type: 3}
@@ -385,6 +386,21 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &525238121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525238113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4dea56a9eaadd1c439095de4f9a371cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SerializedLibrary: {fileID: 11400000, guid: 4c04eb3d2ba76b6469b640a88e7e9370, type: 2}
+  m_MaxNumberOfMovingImages: 1
+  m_TrackedImagePrefab: {fileID: 919132149155446097, guid: badeec96c4b2da349bc62ed1dd52f4db, type: 3}
 --- !u!1 &652619605
 GameObject:
   m_ObjectHideFlags: 0
