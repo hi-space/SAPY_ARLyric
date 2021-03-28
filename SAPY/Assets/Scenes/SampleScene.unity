@@ -255,8 +255,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8516200bf2a5ab42bf142882b418e9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  placeObject: {fileID: 919132149155446097, guid: badeec96c4b2da349bc62ed1dd52f4db, type: 3}
   m_SessionOrigin: {fileID: 525238114}
+  m_plcaeObjects:
+  - {fileID: 919132149155446097, guid: badeec96c4b2da349bc62ed1dd52f4db, type: 3}
+  - {fileID: 919132149155446097, guid: 5d29275ffe857e44f850c2f9940e6496, type: 3}
+  m_AudioClips:
+  - {fileID: 8300000, guid: 6016f427f233537459bc913ab3ac6d39, type: 3}
+  - {fileID: 8300000, guid: 49fa9d8e09ae02e4ebf10126989be7d6, type: 3}
 --- !u!114 &525238118
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,7 +299,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6016f427f233537459bc913ab3ac6d39, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
