@@ -59,11 +59,11 @@ public class ARLyricPlay : MonoBehaviour
             m_isStart = true;
 
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
-            if (m_RaycastManager.Raycast(touch.position, hits, TrackableType.Planes))
+            if (m_RaycastManager.Raycast(touch.position, hits, TrackableType.PlaneEstimated))
             {
                 hitPose = hits[0].pose;
 
-                spawnObject.transform.position = hitPose.position + new Vector3(0.0f, 0.0f, 5.0f);
+                spawnObject.transform.position = hitPose.position;
                 spawnObject.transform.rotation = hitPose.rotation;
             }
         }
