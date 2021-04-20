@@ -54,8 +54,8 @@ public class ARLyricPlay : MonoBehaviour
                 if (m_SpawnObject)
                 {
                     m_SpawnObject.transform.position = hitPose.position;
-                    m_SpawnObject.transform.rotation = hitPose.rotation;
-
+                    //m_SpawnObject.transform.rotation = hitPose.rotation;
+                    m_SpawnObject.transform.rotation = Quaternion.Euler(0, 0, 0);
                 }
             }
         }
