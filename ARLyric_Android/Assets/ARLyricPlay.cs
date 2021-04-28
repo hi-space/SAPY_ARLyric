@@ -43,6 +43,14 @@ public class ARLyricPlay : MonoBehaviour
             currentAudio.Play();
         }
 
+        foreach (GameObject obj in placedObject)
+        {
+            obj.SetActive(false);
+        }
+
+        GameObject currentObject = placedObject[index];
+        currentObject.SetActive(true);
+
         if (Input.touchCount > 0)
         {
             List<ARRaycastHit> hits = new List<ARRaycastHit>();
@@ -50,15 +58,8 @@ public class ARLyricPlay : MonoBehaviour
             {
                 Pose hitPose = hits[0].pose;
 
-                foreach (GameObject obj in placedObject)
-                {
-                    obj.SetActive(false);
-                }
-
-                GameObject currentObject = placedObject[index];
                 currentObject.transform.position = hitPose.position;
                 currentObject.transform.rotation = hitPose.rotation;
-                currentObject.SetActive(true);
             }            
         }
     }
